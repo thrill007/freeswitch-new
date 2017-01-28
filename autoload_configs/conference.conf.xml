@@ -176,6 +176,7 @@
       <param name="bad-pin-sound" value="conference/conf-bad-pin.wav"/>
       <param name="caller-id-name" value="$${outbound_caller_name}"/>
       <param name="caller-id-number" value="$${outbound_caller_id}"/>
+      <param name="member-flags" value="nomoh|mute|vmute"/>
       <param name="comfort-noise" value="true"/>
 
       <!-- <param name="conference-flags" value="video-floor-only|rfc-4579|livearray-sync|auto-3d-position|transcode-video|minimize-video-encoding"/> -->

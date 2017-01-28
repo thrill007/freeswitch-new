@@ -11,7 +11,7 @@
 -->
 <!-- http://wiki.freeswitch.org/wiki/Dialplan_XML -->
 <include>
-  <context name="default">
+  <context name="3101-conference">
     <extension name="unloop">
       <condition field="${unroll_loops}" expression="^true$"/>
       <condition field="${sip_looped_call}" expression="^true$">
@@ -363,20 +363,15 @@
 
     <extension name="wb_conferences">
       <condition field="destination_number" expression="^(31\d{2})$">
+          <action application="set" data="dialed_extension=3101"/>
           <action application="answer"/>
           <!--<action application="set" data="sip_ignore_reinvites=true"/>-->
           <!--<action application="set" data="conference_enter_sound=silence_stream://10"/>
           <action application="set" data="conference_exit_sound=silence_stream://10"/>-->
-          <action application="conference" data="$1-${domain_name}@wideband"/>
+          <action application="conference" data="${dialed_extension}-${domain_name}@wideband"/>
       </condition>
     </extension>
 
-    <extension name="uwb_conferences">
-      <condition field="destination_number" expression="^(32\d{2})$">
-	<action application="answer"/>
-        <action application="conference" data="$1-${domain_name}@ultrawideband"/>
-      </condition>
-    </extension>
     <!-- MONO 48kHz conferences -->
     <extension name="cdquality_conferences">
       <condition field="destination_number" expression="^(33\d{2})$">
@@ -832,17 +827,5 @@
       </condition>
     </extension>
 
-</context>
-
-
-
-
-  <context name="my-conference">
-    <extension name="uwb_conference">
-        <condition field="destination_number" expression="^(31\d{2})$">
-            <action application="set" data="dialed_extension=3200"/>
-            <action application="conference" data="${dialed_extension}-${domain_name}@ultrawideband"/>
-        </condition>
-    </extension>
   </context>
 </include>
