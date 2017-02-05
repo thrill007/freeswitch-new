@@ -367,7 +367,8 @@
           <!--<action application="set" data="sip_ignore_reinvites=true"/>-->
           <!--<action application="set" data="conference_enter_sound=silence_stream://10"/>
           <action application="set" data="conference_exit_sound=silence_stream://10"/>-->
-          <action application="conference" data="$1-${domain_name}@wideband"/>
+          <!-- <action application="conference" data="$1-${domain_name}@wideband"/> -->
+          <action application="conference" data="default@wideband"/>
       </condition>
     </extension>
 
