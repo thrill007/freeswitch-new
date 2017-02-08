@@ -261,8 +261,10 @@
 	 call fails (continue_on_fail=true), otherwise hang up after a successful
 	 bridge (hangup_after_bridge=true) 
     -->
+    <!-- lifeng: 对点对点对拨号规则做个修改，暂时匹配纯字母组合，实际上应该匹配的类型是字母打头的字母数字组合，例如lifeng, lifeng1等-->
     <extension name="Local_Extension">
-        <condition field="destination_number" expression="^(10[01][0-9]|test1|test2|test3|test4|test5|test6|test7|test8|test9|test10|test11|test12|test13|test14|test15|test16|test17|test18|test19|test20)$">
+        <!--<condition field="destination_number" expression="^(10[01][0-9]|test1|test2|test3|test4|test5|test6|test7|test8|test9|test10|test11|test12|test13|test14|test15|test16|test17|test18|test19|test20)$">-->
+        <condition field="destination_number" expression="^([a-zA-Z_]*)$" continue="on-true"> 
             <!--<condition feild="${effective_caller_id_number}" expression="^(10[01][0-9])$">-->
 	<action application="export" data="dialed_extension=$1"/>
 	<!-- bind_meta_app can have these args <key> [a|b|ab] [a|b|o|s] <app> -->
@@ -403,7 +405,6 @@
 	<action application="transfer" data="$1"/>
       </condition>
     </extension>
-
     <extension name="conf mod">
       <condition field="destination_number" expression="^6070-moderator$">
 	<action application="answer"/>

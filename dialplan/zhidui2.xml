@@ -261,8 +261,11 @@
 	 call fails (continue_on_fail=true), otherwise hang up after a successful
 	 bridge (hangup_after_bridge=true) 
     -->
+    <!-- lifeng: 修改点对点通话对拨号规则，目前之匹配字母和下划线，如果需要加上数字，再行修改正则表达式-->
     <extension name="Local_Extension">
-        <condition field="destination_number" expression="^(10[01][0-9]|test1|test2|test3|test4|test5|test6|test7|test8|test9|test10|test11|test12|test13|test14|test15|test16|test17|test18|test19|test20)$">
+        <!-- <condition field="destination_number" expression="^(10[01][0-9]|test1|test2|test3|test4|test5|test6|test7|test8|test9|test10|test11|test12|test13|test14|test15|test16|test17|test18|test19|test20)$">-->
+        <condition field="destination_number" expression="^([a-zA-Z_]*)$" continue="on-true">
+
             <!--<condition feild="${effective_caller_id_number}" expression="^(10[01][0-9])$">-->
 	<action application="export" data="dialed_extension=$1"/>
 	<!-- bind_meta_app can have these args <key> [a|b|ab] [a|b|o|s] <app> -->
@@ -363,7 +366,7 @@
 
     <extension name="wb_conferences">
       <condition field="destination_number" expression="^(31\d{2})$">
-          <action application="set" data="dialed_extension=3102"/>
+          <!-- <action application="set" data="dialed_extension=3102"/>-->
           <action application="answer"/>
           <!--<action application="set" data="sip_ignore_reinvites=true"/>-->
           <!--<action application="set" data="conference_enter_sound=silence_stream://10"/>

@@ -7,7 +7,7 @@
     <variables>
       <variable name="toll_allow" value="domestic,international,local"/>
       <variable name="accountcode" value="test5"/>
-      <variable name="user_context" value="default"/>
+      <variable name="user_context" value="zhidui3"/>
       <variable name="effective_caller_id_name" value="lifeng test account5"/>
       <variable name="effective_caller_id_number" value="test5"/>
       <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
