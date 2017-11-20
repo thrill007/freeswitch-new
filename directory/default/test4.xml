@@ -7,7 +7,7 @@
     <variables>
       <variable name="toll_allow" value="domestic,international,local"/>
       <variable name="accountcode" value="test4"/>
-      <variable name="user_context" value="zhidui1"/>
+      <variable name="user_context" value="leaders"/>
       <variable name="effective_caller_id_name" value="李峰测试账号4"/>
       <variable name="effective_caller_id_number" value="test4"/>
       <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>

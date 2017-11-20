@@ -1,0 +1,19 @@
+<include>
+  <user id="louzhufeng">
+    <params>
+        <param name="password" value="$${default_password}"/>
+        <param name="vm-password" value="louzhufeng"/>
+        <!--<param name="sip-allow-multiple-registrations" value="false"/>-->
+    </params>
+    <variables>
+      <variable name="toll_allow" value="domestic,international,local"/>
+      <variable name="accountcode" value="1010"/>
+      <variable name="user_context" value="zhidui2"/>
+      <variable name="effective_caller_id_name" value="测试账号louzhufeng"/>
+      <variable name="effective_caller_id_number" value="louzhufeng"/>
+      <variable name="outbound_caller_id_name" value="$${outbound_caller_name}"/>
+      <variable name="outbound_caller_id_number" value="$${outbound_caller_id}"/>
+      <variable name="callgroup" value="techsupport"/>
+    </variables>
+  </user>
+</include>
