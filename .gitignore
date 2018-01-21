@@ -106,7 +106,6 @@ Release/
 /build/getsounds.sh
 /build/Makefile
 /build/Makefile.in
-/build/modmake.rules
 /build/print_git_revision
 
 /libs/curl/lib/ca-bundle.h
