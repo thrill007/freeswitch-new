@@ -2,7 +2,8 @@
 #include <switch.h>
 #include "freeswitch_python.h"
 using namespace PYTHON;
-
+//lifeng add below definition 'PyString_AsString()'
+#define PyString_AsString(str) PyBytes_AsString(str)
 #define py_init_vars() cb_function = cb_arg = hangup_func = hangup_func_arg = NULL; hh = mark = 0; TS = NULL
 
 Session::Session():CoreSession()
