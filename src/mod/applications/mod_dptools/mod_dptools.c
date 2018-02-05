@@ -2025,7 +2025,7 @@ SWITCH_STANDARD_APP(ivr_application_function)
 		if ((cxml = switch_xml_open_cfg(ivr_cf_name, &cfg, params)) != NULL) {
 			if ((xml_menus = switch_xml_child(cfg, "menus"))) {
 				xml_menu = switch_xml_find_child(xml_menus, "menu", "name", name);
-
+//                switch_log_printf(SWITCH_CHANNEL_SESSION_LOG(session), SWITCH_LOG_ERROR, "name is: %s\n", name);
 				/* if the menu was found */
 				if (xml_menu != NULL) {
 					switch_ivr_menu_xml_ctx_t *xml_ctx = NULL;

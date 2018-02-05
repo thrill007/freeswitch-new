@@ -47,9 +47,8 @@ SOLINK = -dynamic -force-flat-namespace
 CFLAGS=-g -O2 -Wno-deprecated-declarations -pipe -no-cpp-precomp -Wno-extended-offsetof
 CXXFLAGS=-g -O2 -pipe
 LDFLAGS= -lm -lresolv -L/usr/local/opt/openssl/lib -L/usr/local/lib -pipe -bind_at_load $(OUR_LDFLAGS)
-
 #lifeng: 下列flags中增加了 '-I/usr/local/Cellar/openssl/1.0.2n/include'
-ALL_CFLAGS   = $(LOCAL_CFLAGS) $(MOD_CFLAGS) -I/usr/local/Cellar/openssl/1.0.2n/include -I/usr/local/src/freeswitch/src/include -I/usr/local/src/freeswitch/libs/libteletone/src -Werror -DMACOSX -DHAVE_OPENSSL -g -O2 -Wno-deprecated-declarations -pipe -no-cpp-precomp -Wno-extended-offsetof  -Wall -std=c99 -pedantic -Wdeclaration-after-statement -D_GNU_SOURCE $(OUR_CFLAGS)
+ALL_CFLAGS   = $(LOCAL_CFLAGS) $(MOD_CFLAGS)  -I/usr/local/Cellar/openssl/1.0.2n/include -I/usr/local/src/freeswitch/src/include -I/usr/local/src/freeswitch/src/include -I/usr/local/src/freeswitch/libs/libteletone/src -DMACOSX -DHAVE_OPENSSL -g -O2 -Wno-deprecated-declarations -pipe -no-cpp-precomp -Wno-extended-offsetof  -Wall -std=c99 -pedantic -Wdeclaration-after-statement -D_GNU_SOURCE $(OUR_CFLAGS)
 ALL_CXXFLAGS = $(LOCAL_CFLAGS) $(MOD_CFLAGS) -I/usr/local/src/freeswitch/src/include -I/usr/local/src/freeswitch/src/include -I/usr/local/src/freeswitch/libs/libteletone/src -fPIC -g -O2 -pipe -D_GNU_SOURCE $(OUR_CFLAGS)
 
 DEFAULT_VARS:= CFLAGS="$(CFLAGS)" CPPFLAGS="$(CXXFLAGS)" LDFLAGS="$(LDFLAGS)" CC="$(CC)" CXX="$(CXX)"

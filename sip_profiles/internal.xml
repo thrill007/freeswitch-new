@@ -27,7 +27,6 @@
 
   <settings>
 
-
     <!-- inject delay between dtmf digits on send to help some slow interpreters (also per channel with rtp_digit_delay var -->
     <!-- <param name="rtp-digit-delay" value="40"/>-->
 

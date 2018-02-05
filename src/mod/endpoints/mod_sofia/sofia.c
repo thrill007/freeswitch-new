@@ -6055,7 +6055,7 @@ static void sofia_handle_sip_r_options(switch_core_session_t *session, int statu
 
 		if (status != 200 && status != 486) {
 			sip_user_status.count--;
-			switch_log_printf(SWITCH_CHANNEL_SESSION_LOG(session), SWITCH_LOG_WARNING, "ping count:----------------------------------->%d\n", sip_user_status.count);  //lifeng
+//			switch_log_printf(SWITCH_CHANNEL_SESSION_LOG(session), SWITCH_LOG_WARNING, "ping count:----------------------------------->%d\n", sip_user_status.count);  //lifeng
 			if (sip_user_status.count >= 0) {
 				switch_log_printf(SWITCH_CHANNEL_SESSION_LOG(session), SWITCH_LOG_DEBUG, "Ping to sip user '%s@%s' failed with code %d - count %d, state %s\n",
 						  sip->sip_to->a_url->url_user, sip->sip_to->a_url->url_host, status, sip_user_status.count, sip_user_status.status);

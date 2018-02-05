@@ -11,11 +11,28 @@
 -->
 <!-- http://wiki.freeswitch.org/wiki/Dialplan_XML -->
 <include>
-  <context name="default">
+    <context name="default">
+<!-- 李峰:下面是验证mod_callcenter的
+        <extension name="test_ivr">
+            <condition field="destination_number" expression="5002">
+                <action application="set" data="accountcode=test_in" />
+                <action application="callcenter" data="support@default" />
+                <action application="hangup" />
+            </condition>
+        </extension>
+-->
+<!--
+    李峰：下面的是验证lua的
+      <extension name="number game" >
+          <condition field="destination_number" expression="^1$" >
+              <action application="lua" data="game.lua" />
+          </condition>
+      </extension>
+-->
     <extension name="unloop">
       <condition field="${unroll_loops}" expression="^true$"/>
       <condition field="${sip_looped_call}" expression="^true$">
-	<action application="deflect" data="${destination_number}"/>
+	    <action application="deflect" data="${destination_number}"/>
       </condition>
     </extension>
 
@@ -263,8 +280,8 @@
     -->
     <!-- lifeng: 对点对点对拨号规则做个修改，暂时匹配纯字母组合，实际上应该匹配的类型是字母打头的字母数字组合，例如lifeng, lifeng1等-->
     <extension name="Local_Extension">
-        <!--<condition field="destination_number" expression="^(10[01][0-9]|test1|test2|test3|test4|test5|test6|test7|test8|test9|test10|test11|test12|test13|test14|test15|test16|test17|test18|test19|test20)$">-->
-        <condition field="destination_number" expression="^([a-zA-Z_]*)$" continue="on-true"> 
+        <condition field="destination_number" expression="^(10[01][0-9]|test1|test2|test3|test4|test5|test6|test7|test8|test9|test10|test11|test12|test13|test14|test15|test16|test17|test18|test19|test20)$">
+        <!--<condition field="destination_number" expression="^([a-zA-Z_]*)$" continue="on-true"> -->
             <!--<condition feild="${effective_caller_id_number}" expression="^(10[01][0-9])$">-->
 	<action application="export" data="dialed_extension=$1"/>
 	<!-- bind_meta_app can have these args <key> [a|b|ab] [a|b|o|s] <app> -->
@@ -496,7 +513,7 @@
       </condition>
     </extension>
 
-    <!-- Create a conference on the fly and pull someone in at the same time. --> 
+    <!-- Create a conference on the fly and pull someone in at the same time. -->
     <extension name="dynamic_conference">
       <condition field="destination_number" expression="^5001$">
 	<action application="conference" data="bridge:mydynaconf:sofia/${use_profile}/1234@conference.freeswitch.org"/>
