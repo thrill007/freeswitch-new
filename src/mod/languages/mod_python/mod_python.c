@@ -75,8 +75,8 @@ struct switch_py_thread *thread_pool_head = NULL;
 static switch_mutex_t *THREAD_POOL_LOCK = NULL;
 
 //lifeng add below
-#define PyString_AsString(str) PyBytes_AsString(str)
-#define PyString_Check(name)	PyBytes_Check(name)
+//#define PyString_AsString(str) PyBytes_AsString(str)
+//#define PyString_Check(name)	PyBytes_Check(name)
 /**
 * This function is similiar to PyErr_Print. It uses the freeswitch print/log mechanism instead of the python sys.stderr 
 */
@@ -224,9 +224,9 @@ static void eval_some_python(const char *funcname, char *args, switch_core_sessi
 
 	// swap in thread state
 	PyEval_AcquireThread(tstate);
-	//lifeng comment below
-//	init_freeswitch();
-	PyInit__freeswitch();
+	//lifeng comment below, 现在用的是原来的init_freeswitch()！！！！
+	init_freeswitch();
+//	PyInit__freeswitch();
 
 	// import the module
 	module = PyImport_ImportModule((char *) script);
