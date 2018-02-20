@@ -109,10 +109,6 @@ Release/
 /build/print_git_revision
 
 /libs/curl/lib/ca-bundle.h
-/libs/esl/fs_cli
-/libs/esl/fs_ivrd
-/libs/esl/testclient
-/libs/esl/testserver
 /libs/freetdm/detect_dtmf
 /libs/freetdm/detect_tones
 /libs/freetdm/testanalog
