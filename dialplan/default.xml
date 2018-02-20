@@ -12,9 +12,10 @@
 <!-- http://wiki.freeswitch.org/wiki/Dialplan_XML -->
 <include>
     <context name="default">
-<!-- 李峰:下面是验证mod_callcenter的
-        <extension name="test_ivr">
-            <condition field="destination_number" expression="5002">
+ <!--李峰:下面是验证mod_callcenter的-->
+<!--
+        <extension name="test_callcenter">
+            <condition field="destination_number" expression="^5002$">
                 <action application="set" data="accountcode=test_in" />
                 <action application="callcenter" data="support@default" />
                 <action application="hangup" />
